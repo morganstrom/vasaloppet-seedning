@@ -7,7 +7,7 @@ from src.client import Client
 
 
 class Scraper(object):
-    def __init__(self, base_url: str, params: list, last_page: int):
+    def __init__(self, base_url: str, params: list = None, last_page: int = None):
         self.base_url = base_url
         self.params = params
         self.last_page = last_page
@@ -153,7 +153,3 @@ class EngelbrektScraper(Scraper):
             time.sleep(2)
         client.close()
         return pd.concat(results).reset_index(drop=True)
-
-
-class EQTimingScraper(Scraper):
-    pass
