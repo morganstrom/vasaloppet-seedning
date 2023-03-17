@@ -1,13 +1,12 @@
 from src.scraper import *
 
 VASALOPPET_2022_LAST_PAGE = 121
+VASALOPPET_2022_START_LIST_LAST_PAGE = 157
 VASALOPPET_2022_EVENT_ID = "VL_9999991678887600000008EZ"
 
 VASALOPPET_2023_LAST_PAGE = 121
-VASALOPPET_2023_EVENT_ID = "VL_HCH8NDMR2300"
-
 VASALOPPET_2023_START_LIST_LAST_PAGE = 152
-VASALOPPET_2023_START_LIST_EVENT_ID = "VL_HCH8NDMR2300"
+VASALOPPET_2023_EVENT_ID = "VL_HCH8NDMR2300"
 
 ENGELBREKT_LAST_PAGE = 28
 
@@ -32,13 +31,20 @@ def get_vasaloppet_2023():
 
 def get_vasaloppet_2023_startlist():
     scraper = VasaloppetStartlistScraper(
-        VASALOPPET_2023_START_LIST_EVENT_ID, VASALOPPET_2023_START_LIST_LAST_PAGE)
+        VASALOPPET_2023_EVENT_ID, VASALOPPET_2023_START_LIST_LAST_PAGE)
     df = scraper.paginate()
     df.to_csv("../data/vasaloppet_2023_startlist.csv", index=False)
 
 
+def get_vasaloppet_2022_startlist():
+    scraper = VasaloppetStartlistScraper(
+        VASALOPPET_2022_EVENT_ID, VASALOPPET_2022_START_LIST_LAST_PAGE)
+    df = scraper.paginate()
+    df.to_csv("../data/vasaloppet_2022_startlist.csv", index=False)
+
+
 def main():
-    pass
+    get_vasaloppet_2022_startlist()
 
 
 if __name__ == "__main__":
