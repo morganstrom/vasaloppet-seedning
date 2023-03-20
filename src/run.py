@@ -10,6 +10,9 @@ VASALOPPET_2023_EVENT_ID = "VL_HCH8NDMR2300"
 
 ENGELBREKT_LAST_PAGE = 28
 
+# Results from Moraloppet are available as csv
+# https://live.eqtiming.com/64250#result
+
 
 def get_engelbrekt_2023():
     scraper = EngelbrektScraper(ENGELBREKT_LAST_PAGE)
@@ -45,6 +48,7 @@ def get_vasaloppet_2022_startlist():
 
 def main():
     get_vasaloppet_2022_startlist()
+    get_vasaloppet_2023_startlist()
 
 
 if __name__ == "__main__":

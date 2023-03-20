@@ -13,7 +13,7 @@ scipy = "*"
 pytest = "*"
 requests = "*"
 selenium = "*"
-jupyter = "*"
+jupyterlab = "*"
 
 [dev-packages]
 

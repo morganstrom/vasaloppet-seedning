@@ -54,10 +54,9 @@ def test_vasaloppet_start_list_to_dataframe():
 
     # when
     df = scraper.table_to_dataframe(page)
-    print(df.head())
 
     # then
-    assert df.shape == (25, 3)
+    assert df.shape == (25, 4)
 
 
 def test_vasaloppet_start_list_paginate():
@@ -68,4 +67,4 @@ def test_vasaloppet_start_list_paginate():
     df = scraper.paginate()
 
     # then
-    assert df.shape == (200, 3)
+    assert df.shape == (200, 4)

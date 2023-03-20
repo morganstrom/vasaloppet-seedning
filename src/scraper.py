@@ -74,17 +74,22 @@ class VasaloppetStartlistScraper(Scraper):
 
     def table_to_dataframe(self, source: str) -> pd.DataFrame:
         soup = BeautifulSoup(source, "html.parser")
+
         name = soup.body.find_all("h4", class_="list-field type-fullname")
         age_class = soup.body.find_all("div", class_="list-field type-age_class")
         _ = age_class.pop(0)  # off by one
+
         fields = soup.body.find_all("div", class_="list-field type-field")
         start_group = [field.contents[1] for field in fields if field.contents[0].text == "Start Group"]
+        team = [field.contents[1] for field in fields if field.contents[0].text == "Club"]
         _ = start_group.pop(0)  # off by one
+        _ = team.pop(0)  # off by one
 
         return pd.DataFrame({
             "Name": [entry.a.text for entry in name],
             "Age class": [entry.contents[1] for entry in age_class],
-            "Start group": start_group
+            "Start group": start_group,
+            "Team": team
         })
 
     def page_url(self, page: int) -> str:
