@@ -47,7 +47,10 @@ def get_vasaloppet_2022_startlist():
 
 
 def main():
+    get_engelbrekt_2023()
+    get_vasaloppet_2022()
     get_vasaloppet_2022_startlist()
+    get_vasaloppet_2023()
     get_vasaloppet_2023_startlist()
 
 
