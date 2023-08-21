@@ -1,7 +1,6 @@
 *.DS_Store
 .idea/
 *geckodriver.log
-*.csv
 *.ipynb_checkpoints
 *.pytest_cache
 *__pycache__*
